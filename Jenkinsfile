@@ -15,7 +15,9 @@ pipeline {
          when {
                expression {env.BRANCH_NAME == 'master'}
             }                     
-            steps {
+            steps{
+             sshagent (credentials: ['233a2611-0447-40cd-9128-e71ffaee7052'])
+		 {
                 script {
                    
                         def tag = sh(returnStdout: true, script: "git tag | tail -1").trim()
@@ -33,6 +35,7 @@ pipeline {
                     
                 }
               }
+	  }
         }
   
   }
