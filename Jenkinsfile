@@ -22,7 +22,7 @@ pipeline {
                expression {env.BRANCH_NAME == 'master'}
             }                     
             steps {
-             sshagent (credentials: ['jenkins-secret-token'])                        
+             #sshagent (credentials: ['jenkins-secret-token'])                        
                 {
                 script {
                    
